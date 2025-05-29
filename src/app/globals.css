@@ -23,4 +23,21 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+   @apply min-h-screen;
+}
+
+@theme  {
+  --neutral-0: hsl(200, 60%, 99%);
+  --neutral-1: hsl(0, 0%, 93%); 
+  --neutral-2: hsl(217, 61%, 90%); 
+  --neutral-3: hsl(0, 0%, 78%); 
+  --neutral-4: hsl(226, 11%, 37%); 
+  --neutral-5: hsl(225, 23%, 24%); 
+  --neutral-6: hsl(226, 25%, 17%); 
+  --neutral-7: hsl(227, 75%, 14%); 
+  --red-1: hsl(3, 86%, 64%); 
+  --red-2: hsl(3, 71%, 56%); 
+  --red-3: hsl(3, 77%, 44%);
+  --light-gradient: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+  --dark-gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
 }
