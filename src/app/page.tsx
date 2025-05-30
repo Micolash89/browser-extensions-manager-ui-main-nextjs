@@ -1,21 +1,17 @@
+import HeaderMain from "@/components/HeaderMain";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <>
-      <div className="min-h-screen flex flex-col">
-        <div className="flex-1 flex items-center justify-center p-4">
-          <main>
-            <section>
-              <label htmlFor="">
-                <Image src="" alt="" />
-                Extensions List
-                <input type="text" />
-              </label>
+      <div className="min-h-screen flex flex-col max-w-7xl mx-auto w-full ">
+        <div className="flex-1 flex items-center justify-center p-4 w-full">
+          <main className="w-full">
 
-              <button></button>
-            </section>
-
+      
+<HeaderMain />
+           
+Extensions List
             <section>
               <button>All</button>
               <button>Active</button>
