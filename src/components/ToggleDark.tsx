@@ -5,8 +5,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import React from "react";
 
-export default function ToggleDark() {
-  function getCookie(name: string): string | null {
+ function getCookie(name: string): string | null {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop()?.split(";").shift() ?? null;
@@ -16,6 +15,9 @@ export default function ToggleDark() {
   function setCookie(name: string, value: string) {
     document.cookie = `${name}=${value};path=/;max-age=31536000`;
   }
+
+export default function ToggleDark() {
+ 
 
   const [theme, setTheme] = useState<string | null>(null);
 

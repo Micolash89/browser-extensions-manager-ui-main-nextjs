@@ -1,21 +1,46 @@
+"use client";
+import FilterButton from "@/components/FilterButton";
 import HeaderMain from "@/components/HeaderMain";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
+  const [selectedFilter, setSelectedFilter] = useState<string>("");
+
+  const handleFilterChange = (filterName: string) => {
+    setSelectedFilter(filterName);
+  };
+
   return (
     <>
       <div className="min-h-screen flex flex-col max-w-7xl mx-auto w-full ">
-        <div className="flex-1 flex items-center justify-center p-4 w-full">
-          <main className="w-full">
-
-      
-<HeaderMain />
-           
-Extensions List
-            <section>
-              <button>All</button>
-              <button>Active</button>
-              <button>Inactive</button>
+        <div className="flex-1 flex  justify-center p-4 w-full">
+          <main className="flex flex-col gap-4 w-full">
+            <HeaderMain />
+            <section className="flex sm:mt-5 flex-col sm:flex-row sm:justify-between items-center  gap-4">
+              <h1 className="text-2xl text-center font-bold mt-3">
+                Extensions List
+              </h1>
+              <section className="flex gap-2 ">
+                <FilterButton
+                  name="all"
+                  tipo="filter-group"
+                  isSelected={selectedFilter === "all"}
+                  callBackFunction={() => handleFilterChange("all")}
+                />
+                <FilterButton
+                  name="active"
+                  tipo="filter-group"
+                  isSelected={selectedFilter === "active"}
+                  callBackFunction={() => handleFilterChange("active")}
+                />
+                <FilterButton
+                  name="inactive"
+                  tipo="filter-group"
+                  isSelected={selectedFilter === "inactive"}
+                  callBackFunction={() => handleFilterChange("inactive")}
+                />
+              </section>
             </section>
 
             {/* <!-- If you plan to use the JSON file to populate the data dynamically, you can delete the content below --> */}
