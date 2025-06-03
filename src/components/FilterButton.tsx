@@ -1,4 +1,3 @@
-// FilterButton modificado
 "use client";
 
 export default function FilterButton({
@@ -12,6 +11,7 @@ export default function FilterButton({
   isSelected: boolean;
   callBackFunction: () => void;
 }) {
+  
   return (
     <>
       <input
