@@ -2,6 +2,7 @@
 import ExtensionComponent from "@/components/ExtensionComponent";
 import FilterButton from "@/components/FilterButton";
 import HeaderMain from "@/components/HeaderMain";
+import Spinner from "@/components/Spinner";
 import { useEffect, useState } from "react";
 
 interface Tool {
@@ -14,10 +15,21 @@ interface Tool {
 export default function Home() {
   const [selectedFilter, setSelectedFilter] = useState<string>("");
   const [tools, setTools] = useState<Tool[]>([]);
-  const [loading, setLoading] = useState(true);
 
   const handleFilterChange = (filterName: string) => {
     setSelectedFilter(filterName);
+  };
+
+  const handleToolToggle = (toolName: string, newActiveState: boolean) => {
+    setTools((prevTools) =>
+      prevTools.map((tool) =>
+        tool.name === toolName ? { ...tool, isActive: newActiveState } : tool
+      )
+    );
+  };
+
+  const handleToolRemove = (toolName: string) => {
+    setTools((prevTools) => prevTools.filter((tool) => tool.name !== toolName));
   };
 
   useEffect(() => {
@@ -28,16 +40,13 @@ export default function Home() {
         const data: Tool[] = await response.json();
         setTools(data);
       } catch (error) {
-        console.error("Error loading tools:", error);
+        console.error("Error loading tools:", error); //mensaje en pantalla del error
       } finally {
-        setLoading(false);
       }
     };
 
     fetchTools();
   }, []);
-
-  if (loading) return <div>Loading...</div>;
 
   return (
     <>
@@ -70,6 +79,11 @@ export default function Home() {
                 />
               </section>
             </section>
+            {tools.length === 0 && (
+              <div className="flex justify-center items-center">
+                <Spinner />
+              </div>
+            )}
 
             <section className="grid grid-cols-1 justify-items-center sm:grid-cols-2  lg:grid-cols-3  gap-4  ">
               {selectedFilter === "all"
@@ -79,6 +93,9 @@ export default function Home() {
                       name={tool.name}
                       description={tool.description}
                       url={tool.logo}
+                      isActive={tool.isActive}
+                      onToggle={handleToolToggle}
+                      onRemove={handleToolRemove}
                     />
                   ))
                 : tools
@@ -93,6 +110,9 @@ export default function Home() {
                         name={tool.name}
                         description={tool.description}
                         url={tool.logo}
+                        isActive={tool.isActive}
+                        onToggle={handleToolToggle}
+                        onRemove={handleToolRemove}
                       />
                     ))}
             </section>

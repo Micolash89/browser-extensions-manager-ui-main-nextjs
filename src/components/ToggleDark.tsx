@@ -18,7 +18,6 @@ import React from "react";
 
 export default function ToggleDark() {
  
-
   const [theme, setTheme] = useState<string | null>(null);
 
   useEffect(() => {
@@ -52,7 +51,7 @@ export default function ToggleDark() {
     <>
       <button
         onClick={toggleTheme}
-        className="p-3 bg-blue-50 dark:bg-blue-700 rounded-xl h-fit hover:bg-blue-600 cursor-pointer"
+        className="p-3 bg-red-500  dark:bg-blue-700 rounded-xl h-fit hover:bg-blue-600 cursor-pointer"
       >
         {theme === "light" ? (
           <Image
