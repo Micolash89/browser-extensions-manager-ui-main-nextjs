@@ -50,6 +50,38 @@ export default function Home() {
 
   return (
     <>
+
+        <div className="w-full h-6 bg-neutral-00"><span>bg-neutral-00</span></div>
+        <div className="w-full h-6 bg-neutral-10"><span>bg-neutral-10</span></div>
+        <div className="w-full h-6 bg-neutral-20">
+          <span>bg-neutral-20</span>
+        </div>
+        <div className="w-full h-6 bg-neutral-30">
+          <span>bg-neutral-30</span>
+        </div>
+        <div className="w-full h-6 bg-neutral-40">
+          <span className="text-white">bg-neutral-40</span>
+        </div>
+        <div className="w-full h-6 bg-neutral-50">
+          <span className="text-white">bg-neutral-50</span>
+        </div>
+        <div className="w-full h-6 bg-neutral-60">
+          <span className="text-white">bg-neutral-60</span>
+        </div>
+        <div className="w-full h-6 bg-neutral-70">
+          <span className="text-white">bg-neutral-70</span>
+        </div>
+        <div className="w-full h-6 bg-red-10">
+          <span>bg-red-10</span>
+        </div>
+        <div className="w-full h-6 bg-red-20">
+          <span>bg-red-20</span>
+        </div>
+        <div className="w-full h-6 bg-red-30">
+          <span>bg-red-30</span>
+        </div>
+
+
       <div className="min-h-screen flex flex-col max-w-5xl mx-auto w-full ">
         <div className="flex-1 flex  justify-center p-4 w-full">
           <main className="flex flex-col gap-4 w-full">

@@ -51,7 +51,7 @@ export default function ToggleDark() {
     <>
       <button
         onClick={toggleTheme}
-        className="p-3 bg-red-500  dark:bg-blue-700 rounded-xl h-fit hover:bg-blue-600 cursor-pointer"
+        className="p-3 bg-neutral-10 hover:bg-neutral-30  dark:bg-blue-700 rounded-xl h-fit dark:hover:bg-blue-600 cursor-pointer transition-all duration-300"
       >
         {theme === "light" ? (
           <Image

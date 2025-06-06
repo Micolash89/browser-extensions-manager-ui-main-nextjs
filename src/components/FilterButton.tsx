@@ -23,10 +23,10 @@ export default function FilterButton({
         className="hidden"
       />
       <label
-        className={`capitalize py-2 px-4 rounded-2xl cursor-pointer transition-all duration-200 ${
+        className={`capitalize py-2 px-4 rounded-2xl cursor-pointer transition-all duration-300 ${
           isSelected
-            ? "bg-red-800 text-white hover:bg-red-900"
-            : "dark:bg-blue-900 bg-blue-100 hover:bg-blue-800"
+            ? "bg-red-20 text-white hover:bg-red-10 hover:text-white hover:bg-red-"
+            : "dark:bg-blue-900 bg-neutral-00 border border-neutral-30  hover:bg-neutral-10 dark:hover:bg-blue-800 hover:text-neutral-40 "
         }`}
         htmlFor={name}
       >
