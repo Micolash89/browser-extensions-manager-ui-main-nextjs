@@ -7,8 +7,8 @@ interface ExtensionComponentProps {
   description: string;
   url: string;
   isActive: boolean;
-  onToggle?: (name: string, isActive: boolean) => void; // Callback opcional para notificar cambios al componente padre
-  onRemove?: (name: string) => void; // Callback opcional para remover
+  onToggle?: (name: string, isActive: boolean) => void;
+  onRemove?: (name: string) => void; 
 }
 
 export default function ExtensionComponent({ 
@@ -25,7 +25,6 @@ export default function ExtensionComponent({
     const newActiveState = !isActive;
     setIsActive(newActiveState);
     
-    // Notificar al componente padre si existe el callback
     if (onToggle) {
       onToggle(name, newActiveState);
     }
