@@ -87,7 +87,7 @@ export default function Home() {
           <main className="flex flex-col gap-4 w-full">
             <HeaderMain />
             <section className="flex sm:mt-5 flex-col sm:flex-row sm:justify-between items-center  gap-4">
-              <h1 className="text-2xl text-center font-bold mt-3">
+              <h1 className="text-2xl text-black dark:text-white text-center font-bold mt-3">
                 Extensions List
               </h1>
               <section className="flex gap-2 ">

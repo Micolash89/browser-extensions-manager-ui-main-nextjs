@@ -31,9 +31,11 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-  @apply min-h-screen w-full bg-neutral-20 dark:bg-black  ;
+  @apply min-h-screen w-full  bg-neutral-20 dark:bg-gradient-to-b dark:from-blue-950 dark:to-blue-900; ;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+/* <div class="bg-gradient from-yellow-400 to-orange-500 dark:bg-gradient dark:from-purple-900 dark:to-blue-800 h-48 w-full"></div> */
 
 @theme inline {
   --color-background: var(--background);
