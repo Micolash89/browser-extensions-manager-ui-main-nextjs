@@ -1,16 +1,11 @@
 "use client";
 import ExtensionComponent from "@/components/ExtensionComponent";
 import FilterButton from "@/components/FilterButton";
+import Footer from "@/components/Footer";
 import HeaderMain from "@/components/HeaderMain";
 import Spinner from "@/components/Spinner";
+import { Tool } from "@/lib/definitions";
 import { useEffect, useState } from "react";
-
-interface Tool {
-  logo: string;
-  name: string;
-  description: string;
-  isActive: boolean;
-}
 
 export default function Home() {
   const [selectedFilter, setSelectedFilter] = useState<string>("");
@@ -50,7 +45,6 @@ export default function Home() {
 
   return (
     <>
-
       <div className="min-h-screen flex flex-col max-w-5xl mx-auto w-full ">
         <div className="flex-1 flex  justify-center p-4 w-full">
           <main className="flex flex-col gap-4 w-full">
@@ -121,13 +115,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="attribution">
-        Challenge by{" "}
-        <a href="https://www.frontendmentor.io?ref=challenge">
-          Frontend Mentor
-        </a>
-        . Coded by <a href="#">Your Name Here</a>.
-      </div>
+      <Footer />
     </>
   );
 }
