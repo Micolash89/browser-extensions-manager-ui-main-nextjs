@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { ExtensionComponentProps } from "@/lib/definitions";
+import { motion } from "framer-motion";
 
 export default function ExtensionComponent({
   name,
@@ -10,9 +11,34 @@ export default function ExtensionComponent({
   onToggle,
   onRemove,
   mensajeEliminar,
+  index
 }: ExtensionComponentProps) {
   const [isActive, setIsActive] = useState(initialIsActive);
   const [isConfirmationVisible, setIsConfirmationVisible] = useState(false);
+
+  const tableRowVariants = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+    },
+    visible: (index: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: index * 0.10,
+        duration: 0.25,
+        ease: "easeOut",
+      },
+    }),
+    exit: {
+      opacity: 0,
+      y: -20,
+      transition: {
+        duration: 0.3,
+      },
+    },
+  };
+
   const handleToggle = () => {
     const newActiveState = !isActive;
     setIsActive(newActiveState);
@@ -38,8 +64,13 @@ export default function ExtensionComponent({
   };
 
   return (
-    <section className="w-80 dark:bg-neutral-60 bg-neutral-00 p-5 rounded-2xl border border-neutral-30">
-      <div className="flex gap-4 items-start">
+    <motion.section variants={tableRowVariants} className="w-80 dark:bg-neutral-60 bg-neutral-00 p-5 rounded-2xl border border-neutral-30 flex flex-col justify-between" 
+           initial="hidden"
+          animate="visible"
+          exit="exit"
+          custom={index}
+      >
+      <div className="flex gap-4 items-start ">
         <Image src={url} alt={name + " logo"} width={50} height={50} />
         <div className="flex flex-col gap-2">
           <h4 className="font-bold text-black dark:text-white |">{name}</h4>
@@ -97,6 +128,6 @@ export default function ExtensionComponent({
           </div>
         )}
       </div>
-    </section>
+    </motion.section>
   );
 }

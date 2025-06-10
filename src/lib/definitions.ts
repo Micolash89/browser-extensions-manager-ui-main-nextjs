@@ -13,4 +13,5 @@ export interface ExtensionComponentProps {
   onToggle?: (name: string, isActive: boolean) => void;
   onRemove?: (name: string) => void; 
   mensajeEliminar?: string;
+  index: number;
 }

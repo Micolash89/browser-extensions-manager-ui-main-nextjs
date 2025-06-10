@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import HeaderMain from "@/components/HeaderMain";
 import Spinner from "@/components/Spinner";
 import { Tool } from "@/lib/definitions";
+import { notoSans } from "@/lib/font";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -45,7 +46,9 @@ export default function Home() {
 
   return (
     <>
-      <div className="min-h-screen flex flex-col max-w-5xl mx-auto w-full ">
+      <div
+        className={`${notoSans.className} min-h-screen flex flex-col max-w-5xl mx-auto w-full `}
+      >
         <div className="flex-1 flex  justify-center p-4 w-full">
           <main className="flex flex-col gap-4 w-full">
             <HeaderMain />
@@ -82,7 +85,7 @@ export default function Home() {
 
             <section className="grid grid-cols-1 justify-items-center sm:grid-cols-2  lg:grid-cols-3  gap-4  ">
               {selectedFilter === "all"
-                ? tools.map((tool) => (
+                ? tools.map((tool, index) => (
                     <ExtensionComponent
                       key={tool.name}
                       name={tool.name}
@@ -91,6 +94,7 @@ export default function Home() {
                       isActive={tool.isActive}
                       onToggle={handleToolToggle}
                       onRemove={handleToolRemove}
+                      index={index}
                     />
                   ))
                 : tools
@@ -99,7 +103,7 @@ export default function Home() {
                         ? (tool) => tool.isActive
                         : (tool) => !tool.isActive
                     )
-                    .map((tool) => (
+                    .map((tool, index) => (
                       <ExtensionComponent
                         key={tool.name}
                         name={tool.name}
@@ -108,6 +112,7 @@ export default function Home() {
                         isActive={tool.isActive}
                         onToggle={handleToolToggle}
                         onRemove={handleToolRemove}
+                        index={index}
                       />
                     ))}
             </section>
