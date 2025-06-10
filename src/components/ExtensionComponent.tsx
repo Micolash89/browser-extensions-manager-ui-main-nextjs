@@ -16,6 +16,7 @@ export default function ExtensionComponent({
   const [isActive, setIsActive] = useState(initialIsActive);
   const [isConfirmationVisible, setIsConfirmationVisible] = useState(false);
 
+
   const tableRowVariants = {
     hidden: {
       opacity: 0,
@@ -73,7 +74,7 @@ export default function ExtensionComponent({
       <div className="flex gap-4 items-start ">
         <Image src={url} alt={name + " logo"} width={50} height={50} />
         <div className="flex flex-col gap-2">
-          <h4 className="font-bold text-black dark:text-white |">{name}</h4>
+          <h4 className="font-bold text-black dark:text-white ">{name}</h4>
           <p className="text-sm text-neutral-50 dark:text-neutral-30">
             {description}
           </p>

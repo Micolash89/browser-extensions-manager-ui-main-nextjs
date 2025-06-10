@@ -5,19 +5,18 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import React from "react";
 
- function getCookie(name: string): string | null {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop()?.split(";").shift() ?? null;
-    return null;
-  }
+function getCookie(name: string): string | null {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop()?.split(";").shift() ?? null;
+  return null;
+}
 
-  function setCookie(name: string, value: string) {
-    document.cookie = `${name}=${value};path=/;max-age=31536000`;
-  }
+function setCookie(name: string, value: string) {
+  document.cookie = `${name}=${value};path=/;max-age=31536000`;
+}
 
 export default function ToggleDark() {
- 
   const [theme, setTheme] = useState<string | null>(null);
 
   useEffect(() => {
@@ -51,23 +50,23 @@ export default function ToggleDark() {
     <>
       <button
         onClick={toggleTheme}
-        className="p-3 bg-neutral-10 hover:bg-neutral-30  dark:bg-neutral-50 rounded-xl h-fit dark:hover:bg-neutral-40 cursor-pointer transition-all duration-300"
+        className="p-3 bg-neutral-10 hover:bg-neutral-30  dark:bg-neutral-50 rounded-xl  h-fit dark:hover:bg-neutral-40 cursor-pointer transition-all duration-100 self-center"
       >
         {theme === "light" ? (
           <Image
             src="/assets/images/icon-moon.svg"
             alt="imagen luna"
             className=""
-            width={20}
-            height={20}
+            width={24}
+            height={24}
           />
         ) : (
           <Image
             src="/assets/images/icon-sun.svg"
             alt="imagen sol"
             className=" "
-            width={20}
-            height={20}
+            width={24}
+            height={24}
           />
         )}
       </button>

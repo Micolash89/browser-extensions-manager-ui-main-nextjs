@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [selectedFilter, setSelectedFilter] = useState<string>("");
   const [tools, setTools] = useState<Tool[]>([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleFilterChange = (filterName: string) => {
     setSelectedFilter(filterName);
@@ -51,7 +52,7 @@ export default function Home() {
       >
         <div className="flex-1 flex  justify-center p-4 w-full">
           <main className="flex flex-col gap-4 w-full">
-            <HeaderMain />
+            <HeaderMain setQuery={setSearchQuery} />
             <section className="flex sm:mt-5 flex-col sm:flex-row sm:justify-between items-center  gap-4">
               <h1 className="text-2xl text-black dark:text-white text-center font-bold mt-3">
                 Extensions List
@@ -84,7 +85,22 @@ export default function Home() {
             )}
 
             <section className="grid grid-cols-1 justify-items-center sm:grid-cols-2  lg:grid-cols-3  gap-4  ">
-              {selectedFilter === "all"
+              {searchQuery.length > 0?
+              tools
+                .filter((tool) => tool.name.toLowerCase().includes(searchQuery.toLowerCase()))
+                .map((tool, index) => (
+                  <ExtensionComponent
+                    key={tool.name}
+                    name={tool.name}
+                    description={tool.description}
+                    url={tool.logo}
+                    isActive={tool.isActive}
+                    onToggle={handleToolToggle}
+                    onRemove={handleToolRemove}
+                    index={index}
+                  />
+                )):
+              selectedFilter === "all"
                 ? tools.map((tool, index) => (
                     <ExtensionComponent
                       key={tool.name}
@@ -115,6 +131,8 @@ export default function Home() {
                         index={index}
                       />
                     ))}
+
+
             </section>
           </main>
         </div>
