@@ -53,9 +53,11 @@ export default function HeaderMain({
                 : "w-0 transition-all duration-300"
             }`}
             onChange={(e) => {
-              e.target.value.length > 0
-                ? setQuery(e.target.value)
-                : setQuery("");
+              if (e.target.value.length > 0) {
+                setQuery(e.target.value);
+              } else {
+                setQuery("");
+              }
             }}
           />
 
